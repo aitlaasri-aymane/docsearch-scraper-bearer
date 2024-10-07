@@ -69,8 +69,16 @@ def run_config(config):
             ),
         )(requests.Request()).headers["Authorization"]
         headers.update({"Authorization": iap_token})
+    elif os.getenv("BEARER_TOKEN"):
+        bearer_token = os.getenv("BEARER_TOKEN")
+        headers.update({"Authorization": "Bearer " + bearer_token})
 
     DEFAULT_REQUEST_HEADERS = headers
+
+    # log headers
+    print("Request headers:")
+    for key, value in DEFAULT_REQUEST_HEADERS.items():
+        print(f"{key}: {value}")
 
     process = CrawlerProcess({
         'LOG_ENABLED': '1',

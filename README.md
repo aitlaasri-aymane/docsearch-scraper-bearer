@@ -1,5 +1,14 @@
 # DocSearch scraper
 
+## Run as docker cotainer
+
+Build image :
+
+````
+docker build --tag 'docsearch-crawler' .
+````
+
+
 ## DEPRECATED
 
 This repository is not maintained anymore in favor of [our new infrastructure](https://docsearch.algolia.com/docs/migrating-from-legacy).
